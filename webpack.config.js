@@ -3,7 +3,7 @@ let path = require('path');
 module.exports = {
   entry: './src/ts/index.ts',
   output: {
-    filename: "sprinkles.js",
+    filename: "sprinkles.min.js",
     path: path.resolve(__dirname, "dist"),
     libraryTarget: "umd",
   },

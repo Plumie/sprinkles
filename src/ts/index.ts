@@ -1,2 +1,2 @@
-export { Sprinkles } from "./sprinkles";
+export { default as Sprinkles } from "./sprinkles";
 import '../scss/sprinkles.scss';
