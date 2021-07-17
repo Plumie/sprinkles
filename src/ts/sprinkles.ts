@@ -21,20 +21,20 @@ class Sprinkles {
 
   private wrapEl = (el: HTMLElement) => {
     el.addEventListener('click', () => {
-      let oldSprinkles = el.querySelector('[data-sprinkles]');
+      const oldSprinkles = el.querySelector('[data-sprinkles]');
 
       if (oldSprinkles) {
         oldSprinkles.remove();
       }
 
-      let sprinkleWrapper = document.createElement('div');
+      const sprinkleWrapper = document.createElement('div');
       sprinkleWrapper.dataset.sprinkles = '';
 
       [...Array((this.options as any).amount)].map(() => {
-        let sprinkleContainer = document.createElement('div');
+        const sprinkleContainer = document.createElement('div');
         sprinkleContainer.dataset.sprinkleContainer = '';
 
-        let sprinkle = document.createElement('div');
+        const sprinkle = document.createElement('div');
         sprinkle.dataset.sprinkle = '';
         sprinkle.innerText = (this.options as any).content[
           Math.floor(Math.random() * (this.options as any).content.length)
@@ -46,7 +46,7 @@ class Sprinkles {
 
       el.appendChild(sprinkleWrapper);
 
-      let sprinkles = [...(el.querySelectorAll('[data-sprinkle]') as any)];
+      const sprinkles = [...(el.querySelectorAll('[data-sprinkle]') as any)];
       this.animate(sprinkles);
     });
   };
@@ -58,8 +58,11 @@ class Sprinkles {
           sprinkle.style.transform = `
           translateX(${this.randomCoord()}px) 
           translateY(${this.randomCoord()}px) 
-          scale(4)`;
+          scale(3)`;
           sprinkle.style.opacity = '0';
+          setTimeout(() => {
+            sprinkle.style.display = 'none';
+          }, 1500);
         });
       }),
     );

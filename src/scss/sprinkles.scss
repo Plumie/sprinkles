@@ -16,5 +16,6 @@
 }
 [data-sprinkle] {
   transform: translateX(0px) translateY(0px) scale(1);
-  transition: 1.5s ease all;
+  transition: 1.5s cubic-bezier(0,.76,.29,1) all;
+  pointer-events: none;
 }
